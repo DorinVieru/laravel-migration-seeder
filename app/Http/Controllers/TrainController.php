@@ -9,6 +9,9 @@ class TrainController extends Controller
 {
     public function index(){
         
-        return view('home');
+        $trains = Train::all();
+        $trains_filtered = Train::where('data_di_partenza', '=', '2024-02-15')->get();
+
+        return view('home', compact('trains', 'trains_filtered'));
     }
 }
